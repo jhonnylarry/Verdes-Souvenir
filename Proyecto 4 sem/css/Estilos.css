@@ -65,6 +65,46 @@ table th, table td {
     box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
 }
 
+.tabla-contacto {
+  margin: 30px auto;   /* centra la tabla en la pantalla */
+  width: 50%;          /* ajusta el ancho (puedes poner 40% o 60%) */
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+}
+
+.tabla-contacto td {
+  padding: 10px;
+}
+
+.tabla-contacto input,
+.tabla-contacto textarea {
+  width: 98%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.tabla-contacto button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #0077cc;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.tabla-contacto button:hover {
+  background-color: #005fa3;
+}
+
+
+.tabla-contacto,
+.tabla-contacto td {
+  border: none;   /* saca cualquier borde */
+}
+
 img {
   max-width: 50%;
   height: auto;
