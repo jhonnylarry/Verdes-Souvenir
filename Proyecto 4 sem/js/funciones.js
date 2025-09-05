@@ -1,3 +1,46 @@
+// Mostrar resumen del carrito en carrito.html
+function mostrarResumenCarrito() {
+	const contenedor = document.getElementById('carrito-contenido');
+	const totalDiv = document.getElementById('carrito-total');
+	if (!contenedor) return;
+	const carrito = obtenerCarrito();
+	if (carrito.length === 0) {
+		contenedor.innerHTML = '<p>El carrito está vacío.</p>';
+		if (totalDiv) totalDiv.textContent = '';
+		return;
+	}
+	let total = 0;
+	contenedor.innerHTML = `
+		<table style="width:100%; max-width:700px; margin:auto; background:#fff; border-radius:10px; box-shadow:0 2px 8px #0001;">
+			<thead>
+				<tr>
+					<th>Producto</th>
+					<th>Precio</th>
+					<th>Cantidad</th>
+					<th>Subtotal</th>
+				</tr>
+			</thead>
+			<tbody>
+				${carrito.map(item => {
+					const subtotal = item.precio * item.cantidad;
+					total += subtotal;
+					return `<tr>
+						<td><img src="${item.imagen}" alt="${item.nombre}" style="width:60px;vertical-align:middle;"> ${item.nombre}</td>
+						<td>$${item.precio.toLocaleString('es-CL')}</td>
+						<td>${item.cantidad}</td>
+						<td>$${subtotal.toLocaleString('es-CL')}</td>
+					</tr>`;
+				}).join('')}
+			</tbody>
+		</table>
+	`;
+		if (totalDiv) totalDiv.textContent = `$${total.toLocaleString('es-CL')}`;
+}
+
+// Ejecutar solo en carrito.html
+if (document.getElementById('carrito-contenido')) {
+	document.addEventListener('DOMContentLoaded', mostrarResumenCarrito);
+}
 // Arreglo de productos
 const productos = [
 	{
@@ -59,7 +102,10 @@ document.addEventListener('DOMContentLoaded', () => {
 				<img src="${prod.imagen}" alt="${prod.nombre}">
 				<h2>${prod.nombre}</h2>
 				<p>$${prod.precio.toLocaleString('es-CL')}</p>
-				<button class="btn-agregar-carrito">Agregar al carrito</button>
+				<div class="agregar-carrito-cantidad">
+				  <input type="number" min="1" value="1" class="input-cantidad" style="width:60px; margin-right:8px;">
+				  <button class="btn-agregar-carrito">Agregar al carrito</button>
+				</div>
 			</div>
 		`).join('');
 	}
@@ -75,25 +121,28 @@ function guardarCarrito(carrito) {
 	localStorage.setItem('carrito', JSON.stringify(carrito));
 }
 
-function agregarAlCarrito(id) {
+function agregarAlCarrito(id, cantidad) {
 	const carrito = obtenerCarrito();
 	const producto = productos.find(p => p.id === id);
 	if (!producto) return;
 	const existe = carrito.find(item => item.id === id);
 	if (existe) {
-		existe.cantidad += 1;
+		existe.cantidad += cantidad;
 	} else {
-		carrito.push({ ...producto, cantidad: 1 });
+		carrito.push({ ...producto, cantidad });
 	}
 	guardarCarrito(carrito);
 	alert('Producto agregado al carrito');
 }
 
 function agregarEventosCarrito() {
-	document.querySelectorAll('.btn-agregar-carrito').forEach(btn => {
+	document.querySelectorAll('.producto').forEach(productoDiv => {
+		const btn = productoDiv.querySelector('.btn-agregar-carrito');
+		const input = productoDiv.querySelector('.input-cantidad');
 		btn.addEventListener('click', e => {
-			const id = parseInt(btn.closest('.producto').dataset.id);
-			agregarAlCarrito(id);
+			const id = parseInt(productoDiv.dataset.id);
+			const cantidad = parseInt(input.value) || 1;
+			agregarAlCarrito(id, cantidad);
 		});
 	});
 }
