@@ -1,3 +1,4 @@
+
 //productos.html
 function mostrarResumenCarrito() {
 	const contenedor = document.getElementById('carrito-contenido');
