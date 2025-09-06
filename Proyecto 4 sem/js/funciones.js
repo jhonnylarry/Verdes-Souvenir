@@ -1,4 +1,4 @@
-//productos.html y carrito.html
+//productos.html
 function mostrarResumenCarrito() {
 	const contenedor = document.getElementById('carrito-contenido');
 	const totalDiv = document.getElementById('carrito-total');
