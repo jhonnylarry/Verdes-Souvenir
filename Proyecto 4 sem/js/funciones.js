@@ -1,4 +1,5 @@
-// Mostrar resumen del carrito en carrito.html
+
+//productos.html
 function mostrarResumenCarrito() {
 	const contenedor = document.getElementById('carrito-contenido');
 	const totalDiv = document.getElementById('carrito-total');
@@ -148,7 +149,6 @@ function agregarEventosCarrito() {
 }
 
 // contacto.html
-// js/funciones.js
 document.addEventListener("DOMContentLoaded", () => {
   const btn = document.querySelector(".tabla-contacto button");
   if (!btn) return;
