@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de Usuario - Verdes-Souvenir</title>
+  <link rel="stylesheet" href="css/Estilos.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <img src="img/logo 2.png" alt="Logo empresa" class="logo">
+      <ul class="menu">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="blogs.html">Blog</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+      <div class="menu">
+        <a href="inicioSesion.html" class="inicio-sesion">Iniciar Sesión</a>
+        <a href="registro.html" class="registro-usuario" style="margin-left:10px;">Registrarse</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="registro-usuario" style="max-width:430px; margin:40px auto; background:#fff; border-radius:12px; box-shadow:0 2px 12px #0001; padding:32px 24px;">
+      <h1 style="text-align:center;">Registro de Usuario</h1>
+      <ul id="errores-registro" style="color:#c00; margin-bottom:18px; display:none;"></ul>
+      <form id="form-registro" autocomplete="off">
+  <label for="run">RUN*</label>
+  <input type="text" id="run" name="run" maxlength="9" minlength="7" required placeholder="Ej: 19011022K" style="width:100%; margin-bottom:4px;">
+  <div style="font-size:0.95em; color:#555; margin-bottom:10px;">Debe ingresar el RUN sin puntos ni guion.</div>
+
+        <label for="nombre">Nombre*</label>
+        <input type="text" id="nombre" name="nombre" maxlength="50" required style="width:100%; margin-bottom:10px;">
+
+        <label for="apellidos">Apellidos*</label>
+        <input type="text" id="apellidos" name="apellidos" maxlength="100" required style="width:100%; margin-bottom:10px;">
+
+  <label for="correo">Correo*</label>
+  <input type="email" id="correo" name="correo" maxlength="100" required placeholder="usuario@duoc.cl" style="width:100%; margin-bottom:4px;">
+  <div style="font-size:0.95em; color:#555; margin-bottom:10px;">Solo se permiten correos @duoc.cl, @profesor.duoc.cl y @gmail.com</div>
+
+        <label for="fechaNacimiento">Fecha de nacimiento</label>
+        <input type="date" id="fechaNacimiento" name="fechaNacimiento" style="width:100%; margin-bottom:10px;">
+
+        <label for="region">Región*</label>
+        <select id="region" name="region" required style="width:100%; margin-bottom:10px;"></select>
+
+        <label for="comuna">Comuna*</label>
+        <select id="comuna" name="comuna" required style="width:100%; margin-bottom:10px;"></select>
+
+        <label for="direccion">Dirección*</label>
+        <input type="text" id="direccion" name="direccion" maxlength="300" required style="width:100%; margin-bottom:18px;">
+
+        <button type="submit" style="width:100%; background:#0077cc; color:#fff; border:none; border-radius:8px; padding:12px 0; font-size:1.1rem; cursor:pointer;">Registrarse</button>
+      </form>
+    </section>
+    <script src="js/funcionesRegistro.js"></script>
+  </main>
+
+</body>
+</html>
