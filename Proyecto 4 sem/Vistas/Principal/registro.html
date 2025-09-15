@@ -4,25 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Registro de Usuario - Verdes-Souvenir</title>
-  <link rel="stylesheet" href="css/Estilos.css">
+  <link rel="stylesheet" href="../../css/Estilos.css">
 </head>
 <body>
-  <header>
-    <nav class="navbar">
-      <img src="img/logo 2.png" alt="Logo empresa" class="logo">
-      <ul class="menu">
-        <li><a href="home.html">Home</a></li>
-        <li><a href="productos.html">Productos</a></li>
-        <li><a href="blogs.html">Blog</a></li>
-        <li><a href="nosotros.html">Nosotros</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-      </ul>
-      <div class="menu">
-        <a href="inicioSesion.html" class="inicio-sesion">Iniciar Sesión</a>
-        <a href="registro.html" class="registro-usuario" style="margin-left:10px;">Registrarse</a>
-      </div>
-    </nav>
-  </header>
+ <header>
+  <nav class="navbar">
+    <img src="img/logo 2.png" alt="Logo empresa" class="logo">
+
+    <ul class="menu">
+      <li><a href="../home.html">Home</a></li>
+      <li><a href="../productos.html">Productos</a></li>
+      <li><a href="../blogs.html">Blog</a></li>
+      <li><a href="../nosotros.html">Nosotros</a></li>
+      <li><a href="../contacto.html">Contacto</a></li>
+    </ul>
+
+    <div class="menu">
+      <a href="../Principal/inicioSesion.html" class="inicio-sesion">Iniciar Sesión</a>
+      <a href="../Principal/registro.html" class="registro-usuario" style="margin-left:10px;">Registrarse</a>
+      <a href="../Principal/carrito.html" class="carrito">🛒 Carrito</a>
+    </div>
+  </nav>
+</header>
 
   <main>
     <section class="registro-usuario" style="max-width:430px; margin:40px auto; background:#fff; border-radius:12px; box-shadow:0 2px 12px #0001; padding:32px 24px;">
@@ -43,8 +46,12 @@
   <input type="email" id="correo" name="correo" maxlength="100" required placeholder="usuario@duoc.cl" style="width:100%; margin-bottom:4px;">
   <div style="font-size:0.95em; color:#555; margin-bottom:10px;">Solo se permiten correos @duoc.cl, @profesor.duoc.cl y @gmail.com</div>
 
-        <label for="fechaNacimiento">Fecha de nacimiento</label>
-        <input type="date" id="fechaNacimiento" name="fechaNacimiento" style="width:100%; margin-bottom:10px;">
+
+  <label for="contrasena">Contraseña*</label>
+  <input type="password" id="contrasena" name="contrasena" minlength="4" maxlength="10" required style="width:100%; margin-bottom:10px;">
+
+  <label for="fechaNacimiento">Fecha de nacimiento</label>
+  <input type="date" id="fechaNacimiento" name="fechaNacimiento" style="width:100%; margin-bottom:10px;">
 
         <label for="region">Región*</label>
         <select id="region" name="region" required style="width:100%; margin-bottom:10px;"></select>
@@ -58,7 +65,7 @@
         <button type="submit" style="width:100%; background:#0077cc; color:#fff; border:none; border-radius:8px; padding:12px 0; font-size:1.1rem; cursor:pointer;">Registrarse</button>
       </form>
     </section>
-    <script src="js/funcionesRegistro.js"></script>
+  <script src="../../js/funcionesRegistro.js"></script>
   </main>
 
 </body>

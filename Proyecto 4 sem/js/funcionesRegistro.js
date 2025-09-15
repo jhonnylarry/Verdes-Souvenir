@@ -62,6 +62,10 @@ function validarRegistro(e) {
   const direccion = document.getElementById('direccion').value.trim();
   const region = document.getElementById('region').value;
   const comuna = document.getElementById('comuna').value;
+  const contrasena = document.getElementById('contrasena').value;
+  // Validación de contraseña
+  if (!contrasena) errores.push('La contraseña es requerida.');
+  else if (contrasena.length < 4 || contrasena.length > 10) errores.push('La contraseña debe tener entre 4 y 10 caracteres.');
 
   if (!run) errores.push('El RUN es requerido.');
   else if (!validarRun(run)) errores.push('RUN inválido. Debe tener entre 7 y 9 caracteres, sin puntos ni guion.');
@@ -97,7 +101,9 @@ function validarRegistro(e) {
       direccion,
       region,
       comuna,
-      fechaNacimiento: document.getElementById('fechaNacimiento').value
+      fechaNacimiento: document.getElementById('fechaNacimiento').value,
+      contrasena,
+      tipoUsuario: 'cliente'
     };
     let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
     usuarios.push(nuevoUsuario);

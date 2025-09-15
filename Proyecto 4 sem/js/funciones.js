@@ -89,56 +89,17 @@ function modificarCantidadCarrito(id, cantidad) {
 if (document.getElementById('carrito-contenido')) {
 	document.addEventListener('DOMContentLoaded', mostrarResumenCarrito);
 }
-// Arreglo de productos
+// Arreglo de productos (rutas relativas corregidas)
+
 const productos = [
-	{
-		id: 1,
-		nombre: "Copa de vino jinete",
-		precio: 6500,
-		imagen: "img/Productos/Copa vino .png"
-	},
-	{
-		id: 2,
-		nombre: "Vaso de whisky Escudo",
-		precio: 5990,
-		imagen: "img/Productos/Vaso whisky.png"
-	},
-	{
-		id: 3,
-		nombre: "Vaso shopero Escudo",
-		precio: 5500,
-		imagen: "img/Productos/Vaso shopero.png"
-	},
-	{
-		id: 4,
-		nombre: "Placa Escuadron caballos",
-		precio: 6990,
-		imagen: "img/Productos/Imagen 1.jpg"
-	},
-	{
-		id: 5,
-		nombre: "Placa Carabinero en bici",
-		precio: 4500,
-		imagen: "img/Productos/Imagen 2.jpg"
-	},
-	{
-		id: 6,
-		nombre: "Placa motorizados",
-		precio: 7990,
-		imagen: "img/Productos/Imagen 3.jpg"
-	},
-	{
-		id: 7,
-		nombre: "Placa Control",
-		precio: 8990,
-		imagen: "img/Productos/Imagen 4.jpg"
-	},
-	{
-		id: 8,
-		nombre: "Placa Patrulla",
-		precio: 2990,
-		imagen: "img/Productos/Imagen 5.jpg"
-	}
+	{ id: 1, nombre: "Copa de vino jinete", precio: 6500, imagen: "../../img/Productos/Copa vino .png" },
+	{ id: 2, nombre: "Vaso de whisky Escudo", precio: 5990, imagen: "../../img/Productos/Vaso whisky.png" },
+	{ id: 3, nombre: "Vaso shopero Escudo", precio: 5500, imagen: "../../img/Productos/Vaso shopero.png" },
+	{ id: 4, nombre: "Placa Escuadron caballos", precio: 6990, imagen: "../../img/Productos/Imagen 1.jpg" },
+	{ id: 5, nombre: "Placa Carabinero en bici", precio: 4500, imagen: "../../img/Productos/Imagen 2.jpg" },
+	{ id: 6, nombre: "Placa motorizados", precio: 7990, imagen: "../../img/Productos/Imagen 3.jpg" },
+	{ id: 7, nombre: "Placa Control", precio: 8990, imagen: "../../img/Productos/Imagen 4.jpg" },
+	{ id: 8, nombre: "Placa Patrulla", precio: 2990, imagen: "../../img/Productos/Imagen 5.jpg" }
 ];
 
 // Renderizar productos dinámicamente
@@ -194,68 +155,3 @@ function agregarEventosCarrito() {
 		});
 	});
 }
-
-// contacto.html
-// js/funciones.js
-document.addEventListener("DOMContentLoaded", () => {
-  const btn = document.querySelector(".tabla-contacto button");
-  if (!btn) return;
-
-  btn.addEventListener("click", () => {
-    const nombre  = document.getElementById("nombre").value.trim();
-    const email   = document.getElementById("email").value.trim();
-    const mensaje = document.getElementById("mensaje").value.trim();
-
-    // Verificar campos vacíos
-    const faltantes = [];
-    if (!nombre)  faltantes.push("Nombre");
-    if (!email)   faltantes.push("Email");
-    if (!mensaje) faltantes.push("Mensaje");
-
-    if (faltantes.length > 0) {
-      alert("Faltan datos: " + faltantes.join(", "));
-      return;
-    }
-
-    // Validar longitudes
-    if (nombre.length > 100) {
-      alert("El nombre no puede superar los 100 caracteres.");
-      return;
-    }
-
-    if (email.length > 100) {
-      alert("El correo no puede superar los 100 caracteres.");
-      return;
-    }
-
-    if (mensaje.length > 500) {
-      alert("El mensaje no puede superar los 500 caracteres.");
-      return;
-    }
-
-    // Validar dominios permitidos en correo
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@(duoc\.cl|profesor\.duoc\.cl|gmail\.com)$/;
-    if (!emailRegex.test(email)) {
-      alert("El correo debe terminar en @duoc.cl, @profesor.duoc.cl o @gmail.com.");
-      return;
-    }
-
-    // 📌 Guardar en LocalStorage
-    const nuevoMensaje = { nombre, email, mensaje, fecha: new Date().toLocaleString() };
-
-    // Revisar si ya hay mensajes guardados
-    let mensajes = JSON.parse(localStorage.getItem("mensajesContacto")) || [];
-    mensajes.push(nuevoMensaje);
-
-    // Guardar nuevamente
-    localStorage.setItem("mensajesContacto", JSON.stringify(mensajes));
-
-    alert("Mensaje guardado correctamente ✅");
-
-    // Limpiar formulario
-    document.getElementById("nombre").value = "";
-    document.getElementById("email").value = "";
-    document.getElementById("mensaje").value = "";
-  });
-});
-

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verdes-Souvenir carrito</title>
+  <link rel="stylesheet" href="../../css/Estilos.css"> <!-- Enlace al CSS -->
+</head>
+<body>
+  <header>
+  <nav class="navbar">
+    <img src="img/logo 2.png" alt="Logo empresa" class="logo">
+
+    <ul class="menu">
+      <li><a href="../home.html">Home</a></li>
+      <li><a href="../productos.html">Productos</a></li>
+      <li><a href="../blogs.html">Blog</a></li>
+      <li><a href="../nosotros.html">Nosotros</a></li>
+      <li><a href="../contacto.html">Contacto</a></li>
+    </ul>
+
+    <div class="menu">
+      <a href="../Principal/inicioSesion.html" class="inicio-sesion">Iniciar Sesión</a>
+      <a href="../Principal/registro.html" class="registro-usuario" style="margin-left:10px;">Registrarse</a>
+      <a href="../Principal/carrito.html" class="carrito">🛒 Carrito</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="resumen-carrito">
+      <h1 style="text-align:center;">Resumen del Carrito de Compras</h1>
+    <div id="carrito-contenido" style="width:100%; display:flex; flex-direction:column; align-items:center;">
+      <!-- Aquí se mostrará el resumen de productos -->
+    </div>
+    <div style="margin-top:20px; font-weight:bold; text-align:center;">
+      Total a pagar: <span id="carrito-total"></span>
+    </div>
+  </section>
+</main>
+
+<script src="../../js/funcionesCarrito.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verdes-Souvenir</title>
+  <link rel="stylesheet" href="../../css/Estilos.css"> <!-- Enlace al CSS -->
+</head>
+ <header>
+  <nav class="navbar">
+    <img src="img/logo 2.png" alt="Logo empresa" class="logo">
+
+    <ul class="menu">
+      <li><a href="../home.html">Home</a></li>
+      <li><a href="../productos.html">Productos</a></li>
+      <li><a href="../blogs.html">Blog</a></li>
+      <li><a href="../nosotros.html">Nosotros</a></li>
+      <li><a href="../contacto.html">Contacto</a></li>
+    </ul>
+
+    <div class="menu">
+      <a href="../Principal/inicioSesion.html" class="inicio-sesion">Iniciar Sesión</a>
+      <a href="../Principal/registro.html" class="registro-usuario" style="margin-left:10px;">Registrarse</a>
+      <a href="../Principal/carrito.html" class="carrito">🛒 Carrito</a>
+    </div>
+  </nav>
+</header>
+  <main>
+    <section class="inicio-sesion" style="max-width:430px; margin:40px auto; background:#fff; border-radius:12px; box-shadow:0 2px 12px #0001; padding:32px 24px;">
+      <h1 style="text-align:center;">Iniciar Sesión</h1>
+      <ul id="errores-login" style="color:#c00; margin-bottom:18px; display:none;"></ul>
+      <form id="form-login" autocomplete="off">
+        <label for="correo-login">Correo*</label>
+        <input type="email" id="correo-login" name="correo-login" maxlength="100" required placeholder="usuario@duoc.cl" style="width:100%; margin-bottom:10px;">
+        <div style="font-size:0.95em; color:#555; margin-bottom:10px;">Solo se permiten correos @duoc.cl, @profesor.duoc.cl y @gmail.com</div>
+
+        <label for="contrasena-login">Contraseña*</label>
+        <input type="password" id="contrasena-login" name="contrasena-login" minlength="4" maxlength="10" required style="width:100%; margin-bottom:18px;">
+
+        <button type="submit" style="width:100%; background:#0077cc; color:#fff; border:none; border-radius:8px; padding:12px 0; font-size:1.1rem; cursor:pointer;">Iniciar Sesión</button>
+      </form>
+    </section>
+  <script src="../../js/funcionesInicioSesion.js"></script>
+  </main>
+
+</body>
+</html>
