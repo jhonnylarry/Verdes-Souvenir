@@ -66,7 +66,7 @@ function validarInicioSesion(e) {
     }
     // Redirección según tipo de usuario
     if (usuario.tipoUsuario === 'administrador') {
-      window.location.href = 'dashboard.html';
+      window.location.href = '../Administracion/dashboard.html';
     } else {
       window.location.href = 'home.html';
     }
