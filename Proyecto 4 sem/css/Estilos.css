@@ -229,3 +229,46 @@ img {
   margin: 0;
 }
 
+/* barra lateral de administración */
+
+.sidebar {
+  width: 160px;              /* más delgada (puedes probar 160px también) */
+  background: #222;
+  color: #fff;
+  height: 100vh;
+  padding: 20px 15px;        /* menos padding lateral */
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sidebar h2 {
+  margin-bottom: 0px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 30px 0;
+}
+
+.sidebar ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.contenido {
+  margin-left: 200px;
+  padding: 20px;
+  width: calc(100% - 180px);
+  box-sizing: border-box;
+}
+
+.contenido table {
+  width: 90%;
+  border-collapse: collapse;
+}
