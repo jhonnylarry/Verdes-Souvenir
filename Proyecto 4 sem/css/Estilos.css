@@ -105,6 +105,30 @@ table th, table td {
   border: none;   /* saca cualquier borde */
 }
 
+.tabla-nosotros {
+  margin: 30px auto;
+  width: 70%;
+  border-collapse: separate;
+  border-spacing: 20px; /* espacio entre filas */
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+}
+
+.tabla-nosotros td {
+  vertical-align: middle;
+  padding: 15px;
+}
+
+.tabla-nosotros img {
+  width: 120px;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto;
+}
+
+
 img {
   max-width: 50%;
   height: auto;
