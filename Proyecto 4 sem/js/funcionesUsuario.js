@@ -42,7 +42,7 @@ function mostrarUsuarios() {
   });
 }
 
-// Función para eliminar usuario
+// boton para eliminar usuario
 function eliminarUsuario(index) {
   let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
   usuarios.splice(index, 1); // elimina el usuario en esa posición
@@ -50,7 +50,7 @@ function eliminarUsuario(index) {
   mostrarUsuarios(); // recarga la tabla
 }
 
-// Función para editar usuario
+// boton para editar usuario
 function editarUsuario(index) {
   localStorage.setItem("usuarioEditar", index); // guardamos el índice
   window.location.href = "crearUsuario.html"; // vamos al formulario
@@ -62,7 +62,6 @@ function editarUsuario(index) {
   let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
   const u = usuarios[index];
 
-  // Reemplazamos la fila por inputs
   tbody.rows[index].innerHTML = `
     <td><input type="text" id="edit-run-${index}" value="${u.run}"></td>
     <td><input type="text" id="edit-nombre-${index}" value="${u.nombre}"></td>

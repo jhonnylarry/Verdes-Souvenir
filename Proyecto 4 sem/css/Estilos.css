@@ -230,7 +230,6 @@ img {
 }
 
 /* barra lateral de administración */
-
 .sidebar {
   width: 160px;              /* más delgada (puedes probar 160px también) */
   background: #222;
@@ -271,4 +270,51 @@ img {
 .contenido table {
   width: 90%;
   border-collapse: collapse;
+}
+
+/* tabla de reporte html */
+/* Tabla de mensajes */
+#tabla-mensajes {
+  width: 90%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+#tabla-mensajes th,
+#tabla-mensajes td {
+  border: 1px solid #ddd;
+  padding: 12px 15px;
+  text-align: left;
+}
+
+#tabla-mensajes th {
+  background: #0077cc;
+  color: white;
+  font-weight: bold;
+}
+
+#tabla-mensajes tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+#tabla-mensajes tr:hover {
+  background: #f1f1f1;
+}
+
+/* Botones en la tabla */
+#tabla-mensajes button {
+  background: #c00;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#tabla-mensajes button:hover {
+  background: #900;
 }

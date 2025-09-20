@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mensajes - Admin</title>
+  <link rel="stylesheet" href="../../css/Estilos.css">
+</head>
+<body>
+<aside class="sidebar">
+  <h2>Administrador</h2>
+  <ul>
+    <li><a href="dashboard.html">Dashboard</a></li>
+    <li><a href="../Administracion/usuario.html">Usuarios</a></li>
+    <li><a href="../Administracion/productos.html">Productos</a></li>
+    <li><a href="../Administracion/ordenes.html">Órdenes</a></li>
+    <li><a href="../Administracion/reportes.html">Mensajes</a></li>
+    <li><a href="../Administracion/configuracion.html">Configuración</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="../home.html" class="inicio-sesion">Cerrar Sesión</a></li>
+    </a></li>
+  </ul>
+</aside>
+
+  <h1 style="text-align:center;">Mensajes de Contacto</h1>
+  <table border="1" id="tabla-mensajes" style="width:90%; margin:auto; text-align:left; border-collapse:collapse;">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Correo</th>
+        <th>Mensaje</th>
+        <th>Fecha</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody id="lista-mensajes"></tbody>
+  </table>
+
+  <script src="../../js/funcionesMensajes.js"></script>
+</body>
+</html>

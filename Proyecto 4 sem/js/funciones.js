@@ -48,49 +48,49 @@ const productos = [
 		id: 1,
 		nombre: "Copa de vino jinete",
 		precio: 6500,
-		imagen: "img/Productos/Copa vino .png"
+		imagen: "../img/Productos/Copa vino.png"
 	},
 	{
 		id: 2,
 		nombre: "Vaso de whisky Escudo",
 		precio: 5990,
-		imagen: "img/Productos/Vaso whisky.png"
+		imagen: "../img/Productos/Vaso whisky.png"
 	},
 	{
 		id: 3,
 		nombre: "Vaso shopero Escudo",
 		precio: 5500,
-		imagen: "img/Productos/Vaso shopero.png"
+		imagen: "../img/Productos/Vaso shopero.png"
 	},
 	{
 		id: 4,
 		nombre: "Placa Escuadron caballos",
 		precio: 6990,
-		imagen: "img/Productos/Imagen 1.jpg"
+		imagen: "../img/Productos/Imagen 1.jpg"
 	},
 	{
 		id: 5,
 		nombre: "Placa Carabinero en bici",
 		precio: 4500,
-		imagen: "img/Productos/Imagen 2.jpg"
+		imagen: "../img/Productos/Imagen 2.jpg"
 	},
 	{
 		id: 6,
 		nombre: "Placa motorizados",
 		precio: 7990,
-		imagen: "img/Productos/Imagen 3.jpg"
+		imagen: "../img/Productos/Imagen 3.jpg"
 	},
 	{
 		id: 7,
 		nombre: "Placa Control",
 		precio: 8990,
-		imagen: "img/Productos/Imagen 4.jpg"
+		imagen: "../img/Productos/Imagen 4.jpg"
 	},
 	{
 		id: 8,
 		nombre: "Placa Patrulla",
 		precio: 2990,
-		imagen: "img/Productos/Imagen 5.jpg"
+		imagen: "../img/Productos/Imagen 5.jpg"
 	}
 ];
 
