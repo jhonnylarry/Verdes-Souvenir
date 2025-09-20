@@ -1,15 +1,14 @@
-
 //productos.html
 function mostrarResumenCarrito() {
 	const contenedor = document.getElementById('carrito-contenido');
 	const totalDiv = document.getElementById('carrito-total');
 	if (!contenedor) return;
-	const carrito = obtenerCarrito();
-	if (carrito.length === 0) {
-		contenedor.innerHTML = '<p>El carrito está vacío.</p>';
-		if (totalDiv) totalDiv.textContent = '';
-		return;
-	}
+	let carrito = obtenerCarrito();
+		if (carrito.length === 0) {
+			contenedor.innerHTML = '<p style="text-align:center; font-size:1.1rem; margin:40px 0;">El carrito está vacío.</p>';
+			if (totalDiv) totalDiv.textContent = '';
+			return;
+		}
 	let total = 0;
 	contenedor.innerHTML = `
 		<table style="width:100%; max-width:700px; margin:auto; background:#fff; border-radius:10px; box-shadow:0 2px 8px #0001;">
@@ -19,30 +18,78 @@ function mostrarResumenCarrito() {
 					<th>Precio</th>
 					<th>Cantidad</th>
 					<th>Subtotal</th>
+					<th>Acciones</th>
 				</tr>
 			</thead>
 			<tbody>
 				${carrito.map(item => {
 					const subtotal = item.precio * item.cantidad;
 					total += subtotal;
-					return `<tr>
+					return `<tr data-id="${item.id}">
 						<td><img src="${item.imagen}" alt="${item.nombre}" style="width:60px;vertical-align:middle;"> ${item.nombre}</td>
 						<td>$${item.precio.toLocaleString('es-CL')}</td>
-						<td>${item.cantidad}</td>
+						<td><input type="number" min="1" value="${item.cantidad}" class="input-cantidad-carrito" style="width:60px;"></td>
 						<td>$${subtotal.toLocaleString('es-CL')}</td>
+						<td><button class="btn-eliminar-carrito">Eliminar</button></td>
 					</tr>`;
 				}).join('')}
 			</tbody>
 		</table>
+		<div style="margin-top:30px; text-align:center;">
+			<button id="btn-proceder-pago" style="padding:12px 28px; background:#0077cc; color:#fff; border:none; border-radius:8px; font-size:1.1rem; cursor:pointer;">Proceder al pago</button>
+		</div>
 	`;
-		if (totalDiv) totalDiv.textContent = `$${total.toLocaleString('es-CL')}`;
+	if (totalDiv) totalDiv.textContent = `$${total.toLocaleString('es-CL')}`;
+
+	// Eventos para eliminar y modificar cantidad
+	document.querySelectorAll('.btn-eliminar-carrito').forEach(btn => {
+		btn.addEventListener('click', e => {
+			const tr = btn.closest('tr');
+			const id = parseInt(tr.dataset.id);
+			eliminarDelCarrito(id);
+		});
+	});
+	document.querySelectorAll('.input-cantidad-carrito').forEach(input => {
+		input.addEventListener('change', e => {
+			const tr = input.closest('tr');
+			const id = parseInt(tr.dataset.id);
+			let cantidad = parseInt(input.value);
+			if (isNaN(cantidad) || cantidad < 1) cantidad = 1;
+			modificarCantidadCarrito(id, cantidad);
+		});
+	});
+	// Botón para proceder al pago
+	const btnPago = document.getElementById('btn-proceder-pago');
+	if (btnPago) {
+		btnPago.addEventListener('click', () => {
+			window.location.href = 'pago.html';
+		});
+	}
+}
+
+function eliminarDelCarrito(id) {
+	let carrito = obtenerCarrito();
+	carrito = carrito.filter(item => item.id !== id);	
+	guardarCarrito(carrito);
+	mostrarResumenCarrito();
+}
+
+function modificarCantidadCarrito(id, cantidad) {
+	let carrito = obtenerCarrito();
+	const item = carrito.find(p => p.id === id);
+	if (item) {
+		item.cantidad = cantidad;
+		guardarCarrito(carrito);
+		mostrarResumenCarrito();
+	}
 }
 
 // Ejecutar solo en carrito.html
 if (document.getElementById('carrito-contenido')) {
 	document.addEventListener('DOMContentLoaded', mostrarResumenCarrito);
 }
-// Arreglo de productos
+// Arreglo de productos (rutas relativas corregidas)
+
 const productos = [
 	{
 		id: 1,
@@ -92,6 +139,15 @@ const productos = [
 		precio: 2990,
 		imagen: "../img/Productos/Imagen 5.jpg"
 	}
+=======
+	{ id: 1, nombre: "Copa de vino jinete", precio: 6500, imagen: "../../img/Productos/Copa vino .png" },
+	{ id: 2, nombre: "Vaso de whisky Escudo", precio: 5990, imagen: "../../img/Productos/Vaso whisky.png" },
+	{ id: 3, nombre: "Vaso shopero Escudo", precio: 5500, imagen: "../../img/Productos/Vaso shopero.png" },
+	{ id: 4, nombre: "Placa Escuadron caballos", precio: 6990, imagen: "../../img/Productos/Imagen 1.jpg" },
+	{ id: 5, nombre: "Placa Carabinero en bici", precio: 4500, imagen: "../../img/Productos/Imagen 2.jpg" },
+	{ id: 6, nombre: "Placa motorizados", precio: 7990, imagen: "../../img/Productos/Imagen 3.jpg" },
+	{ id: 7, nombre: "Placa Control", precio: 8990, imagen: "../../img/Productos/Imagen 4.jpg" },
+	{ id: 8, nombre: "Placa Patrulla", precio: 2990, imagen: "../../img/Productos/Imagen 5.jpg" }
 ];
 
 // Renderizar productos dinámicamente
