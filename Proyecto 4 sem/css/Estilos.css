@@ -229,3 +229,91 @@ img {
   margin: 0;
 }
 
+/* barra lateral de administración */
+.sidebar {
+  width: 160px;              /* más delgada (puedes probar 160px también) */
+  background: #222;
+  color: #fff;
+  height: 100vh;
+  padding: 20px 15px;        /* menos padding lateral */
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sidebar h2 {
+  margin-bottom: 0px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 30px 0;
+}
+
+.sidebar ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.contenido {
+  margin-left: 200px;
+  padding: 20px;
+  width: calc(100% - 180px);
+  box-sizing: border-box;
+}
+
+.contenido table {
+  width: 90%;
+  border-collapse: collapse;
+}
+
+/* Tabla de mensajes */
+#tabla-mensajes {
+  width: 90%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+#tabla-mensajes th,
+#tabla-mensajes td {
+  border: 1px solid #ddd;
+  padding: 12px 15px;
+  text-align: left;
+}
+
+#tabla-mensajes th {
+  background: #0077cc;
+  color: white;
+  font-weight: bold;
+}
+
+#tabla-mensajes tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+#tabla-mensajes tr:hover {
+  background: #f1f1f1;
+}
+
+/* Botones en la tabla */
+#tabla-mensajes button {
+  background: #c00;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#tabla-mensajes button:hover {
+  background: #900;
+}

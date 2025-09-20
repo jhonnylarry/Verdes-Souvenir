@@ -95,7 +95,7 @@ const productos = [
 		id: 1,
 		nombre: "Copa de vino jinete",
 		precio: 6500,
-		imagen: "../../img/Productos/Copa vino .png"
+		imagen: "../../img/Productos/Copa vino.png"
 	},
 	{
 		id: 2,

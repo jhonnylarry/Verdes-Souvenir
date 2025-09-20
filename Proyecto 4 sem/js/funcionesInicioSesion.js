@@ -1,5 +1,5 @@
 // funcionesInicioSesion.js
-// Lógica y validaciones para el inicio de sesión de usuarios
+// Lógica y validaciones para el inicio de sesión de usuarios 
 
 // Usuario de prueba para dashboard (solo si no existe ya en localStorage)
 const usuarioAdminPrueba = {

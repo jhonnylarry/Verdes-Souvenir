@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/Estilos.css">
+</head>
+<body>
+<aside class="sidebar">
+  <h2>Administrador</h2>
+  <ul>
+    <li><a href="dashboard.html">Dashboard</a></li>
+    <li><a href="../Administracion/usuario.html">Usuarios</a></li>
+    <li><a href="../Administracion/productos.html">Productos</a></li>
+    <li><a href="../Administracion/ordenes.html">Órdenes</a></li>
+    <li><a href="../Administracion/reportes.html">Mensajes</a></li>
+    <li><a href="../Administracion/configuracion.html">Configuración</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="../home.html" class="inicio-sesion">Cerrar Sesión</a></li>
+    </a></li>
+  </ul>
+</aside>
+
+<main class="contenido">
+    <h1>Gestión de Usuarios</h1>
+    <button id="btn-nuevo-usuario">+ Nuevo Usuario</button>
+
+    <table border="1" width="100%">
+  <thead>
+    <tr>
+      <th>RUN</th>
+      <th>Nombre</th>
+      <th>Apellidos</th>
+      <th>Correo</th>
+      <th>Dirección</th>
+      <th>Región</th>
+      <th>Comuna</th>
+      <th>Tipo Usuario</th>
+      <th>Contraseña</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody id="lista-usuarios">
+    <!-- Aquí va el contenido dinámico -->
+  </tbody>
+</table>
+
+  </main>
+  <script src="../../js/funcionesUsuario.js"></script>
+</body>
+</html>
