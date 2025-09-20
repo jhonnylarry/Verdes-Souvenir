@@ -30,32 +30,36 @@
 <main>
   <center><h1>Contacto</h1></center>
   <center><p>Si tienes alguna pregunta, no dudes en contactarnos.</p></center>
-  <table class="tabla-contacto">
-    <tr>
-      <td>
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <label for="mensaje">Mensaje:</label>
-        <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <button type="submit">Enviar</button>
-      </td>
-    </tr>
-  </table>
+
+  <form id="form-contacto">
+    <table class="tabla-contacto">
+      <tr>
+        <td>
+          <label for="nombre">Nombre:</label>
+          <input type="text" id="nombre" name="nombre" required>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="mensaje">Mensaje:</label>
+          <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <button type="submit">Enviar</button>
+        </td>
+      </tr>
+    </table>
+  </form>
 </main>
+
 
 <footer>
   <p>&copy; 2025 Verdes-Souvenir</p>
