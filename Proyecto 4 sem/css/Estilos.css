@@ -291,8 +291,8 @@ img {
 }
 
 #tabla-mensajes th {
-  background: #0077cc;
-  color: white;
+  background: #fff;
+  color: black;
   font-weight: bold;
 }
 
@@ -306,7 +306,7 @@ img {
 
 /* Botones en la tabla */
 #tabla-mensajes button {
-  background: #c00;
+  background: #0077cc;
   color: white;
   border: none;
   padding: 6px 12px;
@@ -315,5 +315,5 @@ img {
 }
 
 #tabla-mensajes button:hover {
-  background: #900;
+  background: #0077cc;
 }
