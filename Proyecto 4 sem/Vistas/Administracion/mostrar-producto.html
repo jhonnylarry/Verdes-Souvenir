@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Mostrar Productos</title>
+		<link rel="stylesheet" href="../../css/EstilosAdmin.css">
+</head>
+<body class="admin-panel">
+	<aside class="sidebar">
+		<h2>Administrador</h2>
+		<ul>
+			<li><a href="dashboard.html">Dashboard</a></li>
+			<li><a href="usuario.html">Usuarios</a></li>
+			<li><a href="adm-prodcutos.html">Productos</a></li>
+			<li><a href="ordenes.html">Órdenes</a></li>
+			<li><a href="mensaje.html">Mensajes</a></li>
+			<li><a href="configuracion.html">Configuración</a></li>
+		</ul>
+		<ul>
+			<li><a href="../home.html" class="inicio-sesion">Cerrar Sesión</a></li>
+		</ul>
+	</aside>
+	<div class="admin-wrapper">
+		<main class="admin-main">
+			<h1 class="admin-main-title">Productos en Inventario</h1>
+			<div class="editar-buscador">
+				<input type="text" id="buscador-producto" placeholder="Buscar por nombre o código..." class="editar-buscador-input">
+			</div>
+			<div class="tabla-productos-contenedor">
+				<table id="tabla-productos" class="tabla-productos">
+					<thead>
+						<tr>
+							<th>Código</th>
+							<th>Nombre</th>
+							<th>Descripción</th>
+							<th>Precio</th>
+							<th>Stock</th>
+							<th>Stock Crítico</th>
+							<th>Categoría</th>
+							<th>Imagen</th>
+							<th>Acciones</th>
+						</tr>
+					</thead>
+					<tbody>
+						<!-- Productos se insertan aquí por JS -->
+					</tbody>
+				</table>
+			</div>
+			<div class="editar-volver">
+				<a href="adm-prodcutos.html">Volver a administración</a>
+			</div>
+		</main>
+	</div>
+	<script src="../../js/funcionesProductos.js"></script>
+	<script>
+		// Renderizar productos en la tabla
+			function renderizarProductos(filtro = "") {
+				let productos = obtenerProductos();
+				const tbody = document.querySelector('#tabla-productos tbody');
+				if (!tbody) return;
+				if (filtro) {
+					const f = filtro.trim().toLowerCase();
+					productos = productos.filter(prod =>
+						prod.nombre.toLowerCase().includes(f) || prod.codigo.toLowerCase().includes(f)
+					);
+				}
+				if (productos.length === 0) {
+					tbody.innerHTML = '<tr><td colspan="9" style="text-align:center; color:#888;">No hay productos registrados.</td></tr>';
+					return;
+				}
+				tbody.innerHTML = productos.map((prod, idx) => `
+					<tr${prod.stockCritico !== null && prod.stock <= prod.stockCritico ? ' style=\"background:#fff3cd;\"' : ''}>
+						<td>${prod.codigo}</td>
+						<td>${prod.nombre}</td>
+						<td>${prod.descripcion || '-'}</td>
+						<td>$${parseFloat(prod.precio).toLocaleString('es-CL')}</td>
+						<td>${prod.stock}</td>
+						<td>${prod.stockCritico !== null && prod.stockCritico !== undefined ? prod.stockCritico : '-'}</td>
+						<td>${prod.categoria}</td>
+						<td>
+							${prod.imagen ? `<img src='../../img/Productos/${prod.imagen}' alt='${prod.nombre}' style='width:50px; border-radius:6px;'>` : '-'}
+						</td>
+						<td style='display:flex; gap:6px;'>
+							<a href="editar-producto.html?codigo=${encodeURIComponent(prod.codigo)}" class="btn-editar" style="background:#f1c40f; color:#222; border:none; border-radius:6px; padding:6px 12px; cursor:pointer; text-decoration:none; font-weight:600;">Editar</a>
+							<button class="btn-eliminar" data-idx="${idx}" style="background:#e74c3c; color:#fff; border:none; border-radius:6px; padding:6px 12px; cursor:pointer;">Eliminar</button>
+						</td>
+					</tr>
+				`).join('');
+				// Eventos eliminar
+				document.querySelectorAll('.btn-eliminar').forEach(btn => {
+					btn.addEventListener('click', function() {
+						const idx = parseInt(this.dataset.idx);
+						if (confirm('¿Seguro que deseas eliminar este producto?')) {
+							eliminarProducto(idx);
+						}
+					});
+				});
+			}
+		// Eliminar producto por índice
+		function eliminarProducto(idx) {
+			let productos = obtenerProductos();
+			productos.splice(idx, 1);
+			localStorage.setItem('productos', JSON.stringify(productos));
+			renderizarProductos();
+		}
+		// Inicializar
+			document.addEventListener('DOMContentLoaded', () => {
+				renderizarProductos();
+				document.getElementById('buscador-producto').addEventListener('input', function() {
+					renderizarProductos(this.value);
+				});
+			});
+	</script>
+</body>
+</html>
