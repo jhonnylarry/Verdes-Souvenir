@@ -4,15 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard Administrador - Verdes-Souvenir</title>
-  <link rel="stylesheet" href="../../css/Estilos.css">
+  <link rel="stylesheet" href="../../css/EstilosAdmin.css">
 </head>
-<body>
+<body class="admin-panel">
 <aside class="sidebar">
   <h2>Administrador</h2>
   <ul>
     <li><a href="dashboard.html">Dashboard</a></li>
     <li><a href="../Administracion/usuario.html">Usuarios</a></li>
-    <li><a href="../Administracion/productos.html">Productos</a></li>
+    <li><a href="../Administracion/adm-prodcutos.html">Productos</a></li>
     <li><a href="../Administracion/ordenes.html">Órdenes</a></li>
     <li><a href="../Administracion/mensaje.html">Mensajes</a></li>
     <li><a href="../Administracion/configuracion.html">Configuración</a></li>
@@ -25,22 +25,15 @@
 </aside>
 
 =======
-  <header>
-    <nav class="navbar">
-  <img src="../../img/logo 2.png" alt="Logo empresa" class="logo">
-      <ul class="menu">
-      </ul>
-      <div class="menu">
-        <a href="inicioSesion.html" class="inicio-sesion">Cerrar Sesión</a>
-      </div>
-    </nav>
-  </header>
-  <main>
-    <section style="max-width:700px; margin:40px auto; background:#fff; border-radius:12px; box-shadow:0 2px 12px #0001; padding:32px 24px;">
-      <h1 style="text-align:center;">Bienvenido al Dashboard de Administración</h1>
-      <p style="text-align:center;">Aquí podrás gestionar productos, usuarios y ver información relevante del sistema.</p>
-      <!-- Aquí se pueden agregar más componentes administrativos -->
-    </section>
-  </main>
+  
+  <div class="admin-wrapper">
+    <main class="admin-main">
+      <section class="dashboard-bienvenida">
+        <h1>Bienvenido al Dashboard de Administración</h1>
+        <p>Aquí podrás gestionar productos, usuarios y ver información relevante del sistema.</p>
+        <!-- Aquí se pueden agregar más componentes administrativos -->
+      </section>
+    </main>
+  </div>
 </body>
 </html>
